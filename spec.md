@@ -4,7 +4,7 @@ Provide API for core module to authenticate user for National Chung Cheng Univer
 
 ## Spec Versoin
 
-0.0.1 (2019/01/07)
+0.0.1 (2019/01/08)
 
 ## Entry Points
 The following entry points should be supported by this package.
@@ -54,6 +54,6 @@ sign out user for specific entry point
 
 #### exceptions
 
-- `BadMethodCallException` - method parameters are missing or incorrect target value
+- `BadMethodCallException` - method parameters are missing
 - `RuntimeException` - network error or target entry point is not available
 
