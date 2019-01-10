@@ -1,0 +1,43 @@
+{
+  "name": "ccu-plus/authentication",
+  "description": "Provide API for core module to authenticate user for National Chung Cheng University students and alumnus.",
+  "keywords": ["ccu-plus"],
+  "license": "AGPL",
+  "authors": [
+    {
+      "name": "BePsvPT",
+      "email": "bepsvpt@protonmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "guzzlehttp/guzzle": "^6.3",
+    "illuminate/support": "^5.7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "CCUPLUS\\Authentication\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CCUPLUS\\Authentication\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CCUPLUS\\Authentication\\AuthenticationServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
