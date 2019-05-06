@@ -2,7 +2,7 @@
 
 namespace CCUPLUS\Authentication\Validators;
 
-class StudentId
+class StudentId extends Validator
 {
     /**
      * 學號格式.

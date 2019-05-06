@@ -2,7 +2,7 @@
 
 namespace CCUPLUS\Authentication\Validators;
 
-class IdentityCardNumber
+class IdentityCardNumber extends Validator
 {
     /**
      * 身分證字號格式.
