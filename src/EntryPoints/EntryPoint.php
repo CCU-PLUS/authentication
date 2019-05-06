@@ -39,17 +39,13 @@ abstract class EntryPoint
             return false;
         }
 
-        try {
-            $response = $this->guzzle->post($this->signInUrl(), [
-                'allow_redirects' => false,
-                'connect_timeout' => 2,
-                'cookie' => $cookie = new Cookie,
-                'form_params' => $this->signInForm($username, $password),
-                'timeout' => 3,
-            ]);
-        } catch (TransferException $e) {
-            return false;
-        }
+        $response = $this->guzzle->post($this->signInUrl(), [
+            'allow_redirects' => false,
+            'connect_timeout' => 2,
+            'cookie' => $cookie = new Cookie,
+            'form_params' => $this->signInForm($username, $password),
+            'timeout' => 3,
+        ]);
 
         return $this->signedIn($response) ? $cookie : false;
     }
