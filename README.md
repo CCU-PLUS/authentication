@@ -11,4 +11,4 @@ Run the tests with:
 
 ## License
 
-This project is licensed under [Affero General Public License (AGPL)](LICENSE).
+This project is licensed under [Affero General Public License (AGPL)](LICENSE.md).
