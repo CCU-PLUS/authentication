@@ -2,10 +2,22 @@
 
 namespace CCUPLUS\Authentication\EntryPoints;
 
+use CCUPLUS\Authentication\Validators\IdentityCardNumber;
+use CCUPLUS\Authentication\Validators\Validator;
 use Psr\Http\Message\ResponseInterface;
 
 class Alumni extends EntryPoint
 {
+    /**
+     * 身分證格式驗證.
+     *
+     * @return Validator
+     */
+    protected function validator(): Validator
+    {
+        return new IdentityCardNumber;
+    }
+
     /**
      * 登入網址.
      *

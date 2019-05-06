@@ -2,10 +2,22 @@
 
 namespace CCUPLUS\Authentication\EntryPoints;
 
+use CCUPLUS\Authentication\Validators\StudentId;
+use CCUPLUS\Authentication\Validators\Validator;
 use Psr\Http\Message\ResponseInterface;
 
 class Portal extends EntryPoint
 {
+    /**
+     * 學號格式驗證.
+     *
+     * @return Validator
+     */
+    protected function validator(): Validator
+    {
+        return new StudentId;
+    }
+
     /**
      * 登入網址.
      *

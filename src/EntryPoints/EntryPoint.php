@@ -2,6 +2,7 @@
 
 namespace CCUPLUS\Authentication\EntryPoints;
 
+use CCUPLUS\Authentication\Validators\Validator;
 use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\CookieJar as Cookie;
 use GuzzleHttp\Exception\TransferException;
@@ -34,6 +35,10 @@ abstract class EntryPoint
      */
     public function signIn(string $username, string $password)
     {
+        if (!$this->validator()->valid($username)) {
+            return false;
+        }
+
         try {
             $response = $this->guzzle->post($this->signInUrl(), [
                 'allow_redirects' => false,
@@ -70,6 +75,13 @@ abstract class EntryPoint
 
         return true;
     }
+
+    /**
+     * 帳號格式驗證.
+     *
+     * @return Validator
+     */
+    abstract protected function validator(): Validator;
 
     /**
      * 登入網址.
