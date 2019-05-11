@@ -2,7 +2,8 @@
 
 namespace CCUPLUS\Authentication;
 
-use GuzzleHttp\Cookie\CookieJar as Cookie;
+use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Cookie\SetCookie;
 use InvalidArgumentException;
 
@@ -29,7 +30,7 @@ class Authentication
      * @param string $password
      * @param string $target
      *
-     * @return Cookie|false
+     * @return CookieJar|false
      */
     public function signIn(string $username, string $password, string $target)
     {
@@ -45,9 +46,9 @@ class Authentication
             );
         }
 
-        /** @var Cookie|false $cookie */
+        /** @var CookieJar|false $cookie */
 
-        $cookie = (new $class)->signIn($username, $password);
+        $cookie = (new $class(new Client))->signIn($username, $password);
 
         if (false === $cookie) {
             return false;
@@ -79,11 +80,11 @@ class Authentication
     /**
      * 登出用戶.
      *
-     * @param Cookie $jar
+     * @param CookieJar $jar
      *
      * @return bool
      */
-    public function signOut(Cookie $jar): bool
+    public function signOut(CookieJar $jar): bool
     {
         $cookie = $jar->getCookieByName(self::TARGET);
 
@@ -91,6 +92,6 @@ class Authentication
 
         $class = sprintf('%s%s', self::NAMESPACE, $target);
 
-        return (new $class)->signOut($jar);
+        return (new $class(new Client))->signOut($jar);
     }
 }

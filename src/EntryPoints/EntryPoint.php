@@ -3,8 +3,10 @@
 namespace CCUPLUS\Authentication\EntryPoints;
 
 use CCUPLUS\Authentication\Validators\Validator;
-use GuzzleHttp\Client;
-use GuzzleHttp\Cookie\CookieJar as Cookie;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Cookie\CookieJar;
+use GuzzleHttp\Cookie\CookieJarInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\TransferException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -13,16 +15,18 @@ abstract class EntryPoint
     /**
      * Guzzle Http Client instance.
      *
-     * @var Client
+     * @var ClientInterface
      */
     protected $guzzle;
 
     /**
      * Constructor.
+     *
+     * @param ClientInterface $client
      */
-    public function __construct()
+    public function __construct(ClientInterface $client)
     {
-        $this->guzzle = new Client;
+        $this->guzzle = $client;
     }
 
     /**
@@ -31,7 +35,9 @@ abstract class EntryPoint
      * @param string $username
      * @param string $password
      *
-     * @return Cookie|false
+     * @return CookieJar|false
+     *
+     * @throws GuzzleException
      */
     public function signIn(string $username, string $password)
     {
@@ -39,10 +45,10 @@ abstract class EntryPoint
             return false;
         }
 
-        $response = $this->guzzle->post($this->signInUrl(), [
+        $response = $this->guzzle->request('POST', $this->signInUrl(), [
             'allow_redirects' => false,
             'connect_timeout' => 2,
-            'cookie' => $cookie = new Cookie,
+            'cookie' => $cookie = new CookieJar,
             'form_params' => $this->signInForm($username, $password),
             'timeout' => 3,
         ]);
@@ -53,14 +59,16 @@ abstract class EntryPoint
     /**
      * 登出.
      *
-     * @param Cookie $cookie
+     * @param CookieJarInterface $cookie
      *
      * @return bool
+     *
+     * @throws GuzzleException
      */
-    public function signOut(Cookie $cookie): bool
+    public function signOut(CookieJarInterface $cookie): bool
     {
         try {
-            $this->guzzle->get($this->signOutUrl(), [
+            $this->guzzle->request('GET', $this->signOutUrl(), [
                 'connect_timeout' => 1,
                 'cookie' => $cookie,
                 'timeout' => 2,
