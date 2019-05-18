@@ -15,6 +15,7 @@
     "illuminate/support": "^5.8"
   },
   "require-dev": {
+    "mockery/mockery": "^1.2",
     "phpunit/phpunit": "8.1.*"
   },
   "autoload": {
