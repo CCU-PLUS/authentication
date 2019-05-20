@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a721c98da101d81da49301e48880f994",
+    "content-hash": "6e444590d0b0fc4fb9e47112e422292c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -258,16 +258,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.8.15",
+            "version": "v5.8.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "0b3cbe19051c9a8c247091cc0867d3b65250d093"
+                "reference": "acd524087bcebcc0979748e84ccc0876395ae497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/0b3cbe19051c9a8c247091cc0867d3b65250d093",
-                "reference": "0b3cbe19051c9a8c247091cc0867d3b65250d093",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/acd524087bcebcc0979748e84ccc0876395ae497",
+                "reference": "acd524087bcebcc0979748e84ccc0876395ae497",
                 "shasum": ""
             },
             "require": {
@@ -298,20 +298,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2019-04-21T18:51:09+00:00"
+            "time": "2019-05-14T10:54:47+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v5.8.15",
+            "version": "v5.8.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "7fbf8d76946ee53587955b670bd8a47e3d48e854"
+                "reference": "128c6aaa1599811a04fd10c2d68e1213e433da3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/7fbf8d76946ee53587955b670bd8a47e3d48e854",
-                "reference": "7fbf8d76946ee53587955b670bd8a47e3d48e854",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/128c6aaa1599811a04fd10c2d68e1213e433da3f",
+                "reference": "128c6aaa1599811a04fd10c2d68e1213e433da3f",
                 "shasum": ""
             },
             "require": {
@@ -359,20 +359,20 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2019-04-25T14:06:24+00:00"
+            "time": "2019-05-14T13:37:34+00:00"
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.17.1",
+            "version": "2.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "96acbc0c03782e8115156dd4dd8b736267155066"
+                "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/96acbc0c03782e8115156dd4dd8b736267155066",
-                "reference": "96acbc0c03782e8115156dd4dd8b736267155066",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8322b7bd1805be31867c13bf3cdaab948a0dd406",
+                "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406",
                 "shasum": ""
             },
             "require": {
@@ -419,7 +419,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-04-27T18:04:27+00:00"
+            "time": "2019-05-16T18:44:35+00:00"
         },
         {
             "name": "psr/container",
@@ -1603,16 +1603,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.1.4",
+            "version": "8.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b534b017daaef2d7f60c6ee61e6aa2e13fdc6910"
+                "reference": "01392d4b5878aa617e8d9bc7a529e5febc8fe956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b534b017daaef2d7f60c6ee61e6aa2e13fdc6910",
-                "reference": "b534b017daaef2d7f60c6ee61e6aa2e13fdc6910",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/01392d4b5878aa617e8d9bc7a529e5febc8fe956",
+                "reference": "01392d4b5878aa617e8d9bc7a529e5febc8fe956",
                 "shasum": ""
             },
             "require": {
@@ -1681,7 +1681,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-05-09T05:13:39+00:00"
+            "time": "2019-05-14T04:57:31+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
