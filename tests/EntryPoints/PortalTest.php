@@ -2,41 +2,55 @@
 
 namespace CCUPLUS\Authentication\Tests;
 
-use \Mockery;
-use PHPUnit\Framework\TestCase;
 use CCUPLUS\Authentication\EntryPoints\Portal;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\ClientInterface;
+use Mockery;
+use PHPUnit\Framework\TestCase;
 
 class PortalTest extends TestCase
 {
-	/**
-	 * @dataProvider provider
-	 */
-	public function test_sign_in($location, $signed)
-	{
-		$header = ['location' => $location];
-		$response = new Response(200, $header, '', '1.1');
+    public function test_sign_in_success()
+    {
+        $response = new Response(200, ['location' => 'https://portal.ccu.edu.tw/sso_index.php']);
 
-		$guzzle = Mockery::mock(ClientInterface::class);
-		$guzzle->shouldReceive('request')
-			->once()
-			->andReturn($response);
+        $guzzle = Mockery::mock(ClientInterface::class);
 
-		$portal = new Portal($guzzle);
+        $guzzle->shouldReceive('request')
+            ->once()
+            ->andReturn($response);
 
-		$this->assertEquals(
-			$signed,
-			($portal->signIn('401110001', '1234') instanceof \GuzzleHttp\Cookie\CookieJar)
-		);
-	}
+        $signedIn = (new Portal($guzzle))->signIn('401110001', '1234');
 
-	public function provider()
-	{
-		return [
-			['https://portal.ccu.edu.tw/sso_index.php', true],
-			['https://portal.ccu.edu.tw/login_check.php', false]
-		];
-	}
+        $this->assertInstanceOf(CookieJar::class, $signedIn);
+    }
+
+    public function test_sign_in_fail_with_location_header()
+    {
+        $response = new Response(200, ['location' => 'https://portal.ccu.edu.tw/login_check.php']);
+
+        $guzzle = Mockery::mock(ClientInterface::class);
+
+        $guzzle->shouldReceive('request')
+            ->once()
+            ->andReturn($response);
+
+        $signedIn = (new Portal($guzzle))->signIn('401110001', '1234');
+
+        $this->assertFalse($signedIn);
+    }
+
+    public function test_sign_in_fail_without_location_header()
+    {
+        $guzzle = Mockery::mock(ClientInterface::class);
+
+        $guzzle->shouldReceive('request')
+            ->once()
+            ->andReturn(new Response);
+
+        $signedIn = (new Portal($guzzle))->signIn('401110001', '1234');
+
+        $this->assertFalse($signedIn);
+    }
 }
