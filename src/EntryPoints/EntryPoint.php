@@ -48,7 +48,7 @@ abstract class EntryPoint
         $response = $this->guzzle->request('POST', $this->signInUrl(), [
             'allow_redirects' => false,
             'connect_timeout' => 2,
-            'cookie' => $cookie = new CookieJar,
+            'cookies' => $cookie = new CookieJar,
             'form_params' => $this->signInForm($username, $password),
             'timeout' => 3,
         ]);
@@ -70,7 +70,7 @@ abstract class EntryPoint
         try {
             $this->guzzle->request('GET', $this->signOutUrl(), [
                 'connect_timeout' => 1,
-                'cookie' => $cookie,
+                'cookies' => $cookie,
                 'timeout' => 2,
             ]);
         } catch (TransferException $e) {
