@@ -68,13 +68,11 @@ class Authentication
      */
     protected function targetCookie(string $target): SetCookie
     {
-        $cookie = new SetCookie;
-
-        $cookie->setName(self::TARGET);
-
-        $cookie->setValue($target);
-
-        return $cookie;
+        return new SetCookie([
+            'Name' => self::TARGET,
+            'Value' => $target,
+            'Domain' => '0',
+        ]);
     }
 
     /**
