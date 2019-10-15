@@ -4,6 +4,8 @@ namespace CCUPLUS\Authentication\EntryPoints;
 
 use CCUPLUS\Authentication\Validators\IdentityCardNumber;
 use CCUPLUS\Authentication\Validators\Validator;
+use GuzzleHttp\Cookie\CookieJarInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
 class Alumni extends EntryPoint
@@ -60,6 +62,31 @@ class Alumni extends EntryPoint
         }
 
         return false !== mb_strpos($locations[0], 'mainmenu.php');
+    }
+
+    /**
+     * 登入完後處理.
+     *
+     * @param CookieJarInterface $cookie
+     *
+     * @return bool
+     */
+    protected function postSignedIn(CookieJarInterface $cookie): bool
+    {
+        $url = 'https://miswww1.ccu.edu.tw/alumni/alumni/mainmenu.php';
+
+        try {
+            $response = $this->guzzle->request('GET', $url, [
+                'allow_redirects' => false,
+                'connect_timeout' => 2,
+                'cookies' => $cookie,
+                'timeout' => 3,
+            ]);
+        } catch (GuzzleException $e) {
+            return false;
+        }
+
+        return $response->getStatusCode() === 200;
     }
 
     /**

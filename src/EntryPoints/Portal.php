@@ -4,6 +4,7 @@ namespace CCUPLUS\Authentication\EntryPoints;
 
 use CCUPLUS\Authentication\Validators\StudentId;
 use CCUPLUS\Authentication\Validators\Validator;
+use GuzzleHttp\Cookie\CookieJarInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class Portal extends EntryPoint
@@ -61,6 +62,18 @@ class Portal extends EntryPoint
         }
 
         return false !== mb_strpos($locations[0], 'sso_index.php');
+    }
+
+    /**
+     * 登入完後處理.
+     *
+     * @param CookieJarInterface $cookie
+     *
+     * @return bool
+     */
+    protected function postSignedIn(CookieJarInterface $cookie): bool
+    {
+        return true;
     }
 
     /**

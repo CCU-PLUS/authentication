@@ -53,7 +53,11 @@ abstract class EntryPoint
             'timeout' => 3,
         ]);
 
-        return $this->signedIn($response) ? $cookie : false;
+        if (!$this->signedIn($response) || !$this->postSignedIn($cookie)) {
+            return false;
+        }
+
+        return $cookie;
     }
 
     /**
@@ -112,6 +116,15 @@ abstract class EntryPoint
      * @return bool
      */
     abstract protected function signedIn(ResponseInterface $response): bool;
+
+    /**
+     * 登入完後處理.
+     *
+     * @param CookieJarInterface $cookie
+     *
+     * @return bool
+     */
+    abstract protected function postSignedIn(CookieJarInterface $cookie): bool;
 
     /**
      * 登出網址.
