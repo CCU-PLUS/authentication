@@ -47,10 +47,10 @@ abstract class EntryPoint
 
         $response = $this->guzzle->request('POST', $this->signInUrl(), [
             'allow_redirects' => false,
-            'connect_timeout' => 2,
+            'connect_timeout' => 5,
             'cookies' => $cookie = new CookieJar,
             'form_params' => $this->signInForm($username, $password),
-            'timeout' => 3,
+            'timeout' => 5,
         ]);
 
         if (!$this->signedIn($response) || !$this->postSignedIn($cookie)) {
