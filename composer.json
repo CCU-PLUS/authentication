@@ -2,7 +2,7 @@
   "name": "ccu-plus/authentication",
   "description": "Provide API for core module to authenticate user for National Chung Cheng University students and alumnus.",
   "keywords": ["ccu-plus"],
-  "license": "AGPL",
+  "license": "AGPL-3.0-only",
   "authors": [
     {
       "name": "BePsvPT",
