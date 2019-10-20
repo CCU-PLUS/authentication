@@ -2,20 +2,10 @@
 
 namespace CCUPLUS\Authentication;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class AuthenticationServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
     /**
      * Register any application services.
      *
@@ -27,5 +17,4 @@ class AuthenticationServiceProvider extends ServiceProvider
             return new Authentication;
         });
     }
-
 }

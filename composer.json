@@ -35,7 +35,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "CCUPLUS\\Authentication\\AuthenticationServiceProvider"
+        "CCUPLUS\\Authentication\\ServiceProvider"
       ]
     }
   },
