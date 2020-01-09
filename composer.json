@@ -15,14 +15,15 @@
   ],
   "require": {
     "php": "^7.2",
-    "guzzlehttp/guzzle": "^6.3",
-    "illuminate/support": "^6.2"
+    "guzzlehttp/guzzle": "~6.3",
+    "illuminate/support": "~6.2"
   },
   "require-dev": {
-    "mockery/mockery": "^1.2",
-    "phpstan/phpstan": "^0.12",
-    "phpstan/phpstan-mockery": "^0.12",
-    "phpunit/phpunit": "^8.4"
+    "friendsofphp/php-cs-fixer": "~2.16",
+    "mockery/mockery": "~1.2",
+    "phpstan/phpstan": "~0.12",
+    "phpstan/phpstan-mockery": "~0.12",
+    "phpunit/phpunit": "~8.4"
   },
   "autoload": {
     "psr-4": {
