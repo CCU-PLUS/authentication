@@ -8,7 +8,7 @@ namespace CCUPLUS\Authentication\Validators
     {
         if ($format === 'Y') {
             return 2019;
-        } else if (1 === StudentIdTest::$semester) {
+        } elseif (1 === StudentIdTest::$semester) {
             return 11;
         }
 
@@ -23,7 +23,7 @@ namespace CCUPLUS\Authentication\Tests
 
     class StudentIdTest extends TestCase
     {
-        static public $semester = 1;
+        public static $semester = 1;
 
         public function test_first_semester_student_id(): void
         {

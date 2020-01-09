@@ -91,9 +91,9 @@ class StudentId extends Validator
     {
         if (1 !== preg_match($this->pattern, $sid)) {
             return false;
-        } else if (!$this->isEnrollment($sid)) {
+        } elseif (!$this->isEnrollment($sid)) {
             return false;
-        } else if (!in_array(substr($sid, 3, 3), $this->departments, true)) {
+        } elseif (!in_array(substr($sid, 3, 3), $this->departments, true)) {
             return false;
         }
 
