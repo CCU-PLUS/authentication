@@ -1,0 +1,15 @@
+includes:
+    - vendor/phpstan/phpstan-mockery/extension.neon
+
+parameters:
+    level: max
+
+    paths:
+        - %currentWorkingDirectory%/src
+        - %currentWorkingDirectory%/tests
+    
+    ignoreErrors:
+        -
+            message: "#^Property CCUPLUS\\\\Authentication\\\\Tests\\\\StudentIdTest\\:\\:\\$semester has no typehint specified\\.$#"
+            count: 1
+            path: tests/Validators/StudentIdTest.php
