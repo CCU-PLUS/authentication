@@ -10,9 +10,19 @@ Provide API for core module to authenticate user for National Chung Cheng Univer
 
 ## Testing
 
-Run the tests with:
+Unit Test:
 ```bash
-./vendor/bin/phpunit
+php vendor/bin/phpunit
+```
+
+Static Analysis:
+```bash
+php vendor/bin/phpstan analyse --verbose
+```
+
+Coding Style Check:
+```bash
+php vendor/bin/php-cs-fixer fix --verbose --dry-run
 ```
 
 ## License
