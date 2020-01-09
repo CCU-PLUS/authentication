@@ -14,7 +14,7 @@ class IdentityCardNumber extends Validator
     /**
      * 身分證字號字母對應字元表.
      *
-     * @var array
+     * @var array<array<int>>
      */
     protected $locations = [
         'A' => [1, 0], 'B' => [1, 1], 'C' => [1, 2], 'D' => [1, 3],
@@ -29,7 +29,7 @@ class IdentityCardNumber extends Validator
     /**
      * 身分證字號驗證公式權重.
      *
-     * @var array
+     * @var array<int>
      */
     protected $weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1];
 
@@ -58,7 +58,7 @@ class IdentityCardNumber extends Validator
      *
      * @param string $icn
      *
-     * @return array
+     * @return array<int>
      */
     protected function explode(string $icn): array
     {

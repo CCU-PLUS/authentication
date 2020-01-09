@@ -14,7 +14,7 @@ class StudentId extends Validator
     /**
      * 科系與學號中間三碼對應表.
      *
-     * @var array
+     * @var array<string>
      */
     protected $departments = [
         '110', // 中國文學系、中國文學研究所

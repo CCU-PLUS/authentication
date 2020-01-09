@@ -4,6 +4,7 @@ namespace CCUPLUS\Authentication\EntryPoints;
 
 use CCUPLUS\Authentication\Validators\IdentityCardNumber;
 use CCUPLUS\Authentication\Validators\Validator;
+use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Cookie\CookieJarInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
@@ -36,7 +37,7 @@ class Alumni extends EntryPoint
      * @param string $username
      * @param string $password
      *
-     * @return array
+     * @return array<string>
      */
     protected function signInForm(string $username, string $password): array
     {
@@ -67,7 +68,7 @@ class Alumni extends EntryPoint
     /**
      * 登入完後處理.
      *
-     * @param CookieJarInterface $cookie
+     * @param CookieJarInterface<CookieJar> $cookie
      *
      * @return bool
      */

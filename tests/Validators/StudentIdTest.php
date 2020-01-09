@@ -4,7 +4,7 @@ namespace CCUPLUS\Authentication\Validators
 {
     use CCUPLUS\Authentication\Tests\StudentIdTest;
 
-    function date(string $format)
+    function date(string $format): int
     {
         if ($format === 'Y') {
             return 2019;
@@ -25,7 +25,7 @@ namespace CCUPLUS\Authentication\Tests
     {
         static public $semester = 1;
 
-        public function test_first_semester_student_id()
+        public function test_first_semester_student_id(): void
         {
             // 108 學年度第一學期，2019 年 11 月
             self::$semester = 1;
@@ -45,7 +45,7 @@ namespace CCUPLUS\Authentication\Tests
             $this->assertFalse($sid->valid('401110201'));
         }
 
-        public function test_second_semester_student_id()
+        public function test_second_semester_student_id(): void
         {
             // 107 學年度第二學期，2019 年 05 月
             self::$semester = 2;

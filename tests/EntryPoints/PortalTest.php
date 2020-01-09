@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class PortalTest extends TestCase
 {
-    public function test_sign_in_success()
+    public function test_sign_in_success(): void
     {
         $response = new Response(200, ['location' => 'https://portal.ccu.edu.tw/sso_index.php']);
 
@@ -26,7 +26,7 @@ class PortalTest extends TestCase
         $this->assertInstanceOf(CookieJar::class, $signedIn);
     }
 
-    public function test_sign_in_fail_with_location_header()
+    public function test_sign_in_fail_with_location_header(): void
     {
         $response = new Response(200, ['location' => 'https://portal.ccu.edu.tw/login_check.php']);
 
@@ -41,7 +41,7 @@ class PortalTest extends TestCase
         $this->assertFalse($signedIn);
     }
 
-    public function test_sign_in_fail_without_location_header()
+    public function test_sign_in_fail_without_location_header(): void
     {
         $guzzle = Mockery::mock(ClientInterface::class);
 

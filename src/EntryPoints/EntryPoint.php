@@ -35,7 +35,7 @@ abstract class EntryPoint
      * @param string $username
      * @param string $password
      *
-     * @return CookieJar|false
+     * @return CookieJarInterface<CookieJar>|false
      *
      * @throws GuzzleException
      */
@@ -63,7 +63,7 @@ abstract class EntryPoint
     /**
      * 登出.
      *
-     * @param CookieJarInterface $cookie
+     * @param CookieJarInterface<CookieJar> $cookie
      *
      * @return bool
      *
@@ -104,7 +104,7 @@ abstract class EntryPoint
      * @param string $username
      * @param string $password
      *
-     * @return array
+     * @return array<string>
      */
     abstract protected function signInForm(string $username, string $password): array;
 
@@ -120,7 +120,7 @@ abstract class EntryPoint
     /**
      * 登入完後處理.
      *
-     * @param CookieJarInterface $cookie
+     * @param CookieJarInterface<CookieJar> $cookie
      *
      * @return bool
      */

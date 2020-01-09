@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class IdentityCardNumberTest extends TestCase
 {
-    public function test_identify_card_number()
+    public function test_identify_card_number(): void
     {
         $icn = new IdentityCardNumber;
 
