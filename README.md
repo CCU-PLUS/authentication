@@ -6,7 +6,7 @@ Provide API for core module to authenticate user for National Chung Cheng Univer
 
 ## Version
 
-1.0.0
+1.0.1
 
 ## Testing
 
