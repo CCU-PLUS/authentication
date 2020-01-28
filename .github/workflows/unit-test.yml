@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Setup PHP, Composer and Extensions
         uses: shivammathur/setup-php@v1
@@ -15,13 +15,13 @@ jobs:
           php-version: '7.4'
 
       - name: Install dependencies
-        run: composer install --optimize-autoloader --prefer-dist --no-interaction --no-progress --no-suggest
+        run: composer install --optimize-autoloader --no-interaction --no-progress --no-suggest
 
       - name: Run PHPStan
-        run: php vendor/bin/phpstan analyse --verbose
+        run: vendor/bin/phpstan analyse --verbose
 
       - name: Run PHP-CS-Fixer
-        run: php vendor/bin/php-cs-fixer fix --verbose --dry-run
+        run: vendor/bin/php-cs-fixer fix --verbose --dry-run
 
   phpunit:
     runs-on: ${{ matrix.operating-system }}
@@ -34,7 +34,7 @@ jobs:
         php-versions: ['7.2', '7.3', '7.4']
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Setup PHP, Composer and Extensions
         uses: shivammathur/setup-php@v1
@@ -43,7 +43,7 @@ jobs:
           extensions: mbstring
 
       - name: Install dependencies
-        run: composer install --optimize-autoloader --prefer-dist --no-interaction --no-progress --no-suggest
+        run: composer install --optimize-autoloader --no-interaction --no-progress --no-suggest
 
       - name: Run PHPUnit
-        run: php vendor/bin/phpunit
+        run: vendor/bin/phpunit
