@@ -2,6 +2,7 @@
   "name": "ccu-plus/authentication",
   "description": "Provide API for core module to authenticate user for National Chung Cheng University students and alumnus.",
   "keywords": ["ccu-plus"],
+  "version": "1.0.2",
   "license": "AGPL-3.0-only",
   "authors": [
     {
@@ -23,7 +24,7 @@
     "mockery/mockery": "~1.2",
     "phpstan/phpstan": "~0.12",
     "phpstan/phpstan-mockery": "~0.12",
-    "phpunit/phpunit": "~8.4"
+    "phpunit/phpunit": "~9.0"
   },
   "autoload": {
     "psr-4": {
